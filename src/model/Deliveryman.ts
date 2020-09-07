@@ -4,23 +4,17 @@ import documentSchema from "./DocumentSchema";
 
 const Schema = mongoose.Schema;
 
-const BusinessSchema = new Schema(
+const DeliverymanSchema = new Schema(
   {
     _id: {
       type: String,
       default: () => nanoid(),
     },
-    company_name: {
+    name: {
       type: String,
       required: true,
       trim: true,
     },
-    trade_name: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    document: documentSchema,
     email: {
       type: String,
       unique: true,
@@ -31,7 +25,11 @@ const BusinessSchema = new Schema(
       type: String,
       required: true,
     },
-    addresses: [String],
+    document: documentSchema,
+    phone_number: {
+      type: String,
+      trim: true,
+    },
   },
   {
     timestamps: {
@@ -41,6 +39,6 @@ const BusinessSchema = new Schema(
   }
 );
 
-const Business = mongoose.model("Business", BusinessSchema);
+const Deliveryman = mongoose.model("Deliveryman", DeliverymanSchema);
 
-export default Business;
+export default Deliveryman;

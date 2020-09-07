@@ -5,6 +5,9 @@
   "author": "Felipe-Santana <felipesantanaalbuquerque9@gmail.com>",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "node": ">=12"
+  },
   "scripts": {
     "dev": "tsnd --watch .env --transpile-only --respawn --ignore-watch node_modules --rs --clear src/index.ts",
     "build": "tsc --build",
