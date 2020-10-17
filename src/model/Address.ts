@@ -3,22 +3,58 @@ import { nanoid } from "nanoid";
 
 const Schema = mongoose.Schema;
 
-const AddressSchema = new Schema(
+export const AddressSchema = new Schema(
   {
     _id: {
       type: String,
       default: () => nanoid(),
     },
-    title: String,
-    street_name: String,
-    number: Number,
-    postal_code: String,
+    title: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    street_name: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    number: {
+      type: Number,
+      required: true
+    },
+    postal_code: {
+      type: String,
+      required: true,
+      trim: true,
+      minlength: 8
+    },
     references: String,
     complement: String,
-    state: String,
-    city: String,
-    district: String,
-    country: String,
+    state: {
+      type: String,
+      required: true,
+      trim: true,
+      uppercase: true,
+      minlength: 2,
+      maxlength: 2
+    },
+    city: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    district: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    country: {
+      type: String,
+      required: true,
+      trim: true,
+      default: "Brasil"
+    }
   },
   {
     timestamps: {
@@ -28,6 +64,4 @@ const AddressSchema = new Schema(
   }
 );
 
-const Address = mongoose.model("Address", AddressSchema);
-
-export default Address;
+export const Address = mongoose.model("Address", AddressSchema);
