@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 
 const Schema = mongoose.Schema;
 
-const documentSchema = new Schema({
+export const DocumentSchema = new Schema({
   _id: {
     type: String,
     default: () => nanoid(),
@@ -13,7 +13,7 @@ const documentSchema = new Schema({
     lowercase: true,
     trim: true,
     required: true,
-    enum: ["cnpj", "cpf"],
+    enum: ["cnpj", "cpf", "rg"],
   },
   number: {
     type: String,
@@ -24,4 +24,4 @@ const documentSchema = new Schema({
   },
 });
 
-export default documentSchema;
+// export const Document = mongoose.model("Document", DocumentSchema);
