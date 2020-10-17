@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import Business from "../model/Business";
-import Address from "../model/Address";
+import { Business } from "../model/Business";
+import { Address } from "../model/Address";
 import { encodePassword, validatePassword } from "../utils/PasswordUtil";
 import { createAccessToken } from "../security/AccessToken";
 
