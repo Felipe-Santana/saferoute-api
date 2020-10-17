@@ -13,6 +13,7 @@ const connectToDb = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
+      useFindAndModify: false,
     });
   } catch (error) {
     console.error(error);
