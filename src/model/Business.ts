@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 import { nanoid } from "nanoid";
-import documentSchema from "./DocumentSchema";
+import { DocumentSchema } from "./DocumentSchema";
 
 const Schema = mongoose.Schema;
 
-const BusinessSchema = new Schema(
+export const BusinessSchema = new Schema(
   {
     _id: {
       type: String,
@@ -20,7 +20,7 @@ const BusinessSchema = new Schema(
       required: true,
       trim: true,
     },
-    document: documentSchema,
+    document: DocumentSchema,
     email: {
       type: String,
       unique: true,
@@ -41,6 +41,4 @@ const BusinessSchema = new Schema(
   }
 );
 
-const Business = mongoose.model("Business", BusinessSchema);
-
-export default Business;
+export const Business = mongoose.model("Business", BusinessSchema);
